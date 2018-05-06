@@ -6,7 +6,7 @@ import (
 
 import("net/http"
 	"encoding/json"
-"github.com/ashwin-sridhar/database"
+"github.com/bark-server/database"
 "io"
 "io/ioutil"
 "log"
@@ -34,6 +34,7 @@ func GetPostsNearMe(w http.ResponseWriter, r *http.Request) {
 }
 
 func CreatePost(w http.ResponseWriter, r *http.Request) {
+	fmt.Print("HEREEE")
 	var post database.PostData
 	body, err := ioutil.ReadAll(io.LimitReader(r.Body, 1048576)) // read the body of the request
 	if err != nil {
@@ -60,4 +61,13 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	 w.WriteHeader(http.StatusCreated)
 	 return
+	}
+
+	func EnableCors(w http.ResponseWriter, r *http.Request) {
+		fmt.Print("HEHEHE2")
+		(w).Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Methods", "POST,GET,OPTIONS,PUT,DELETE")
+		w.Header().Set("Access-Control-Allow-Headers", "Content-Type,Accept")
+		w.WriteHeader(http.StatusOK)
+		return
 	}

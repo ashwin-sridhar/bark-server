@@ -84,5 +84,6 @@ func (r Repository) CreatePost(post PostData) bool {
 	 log.Fatalln("Insert failure",err)
 	 return false
 	}
+	fmt.Println("DONE OH DONE")
 	return true
    }

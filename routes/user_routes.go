@@ -4,7 +4,7 @@ import(
 	"fmt"
 	"net/http"
 	"encoding/json"
-"github.com/ashwin-sridhar/database")
+"github.com/bark-server/database")
 
 func GetUsers(w http.ResponseWriter, r *http.Request) {
 	rep:=database.Repository{}
